@@ -1,7 +1,4 @@
 # API-RESTFUL-Products
-API RESTFUL Products with NodeJS
-
-# API de Productos
 
 ## Endpoints
 
