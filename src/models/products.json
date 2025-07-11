@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "nombre": "Remera Negra Minimalista",
+    "descripcion": "Remera de algodón entallada, con frase discreta en el pecho.",
+    "precio": 9500
+  },
+  {
+    "id": 2,
+    "nombre": "Pantalón Cargo Verde",
+    "descripcion": "Pantalón de gabardina con múltiples bolsillos y calce relajado.",
+    "precio": 18900
+  },
+  {
+    "id": 3,
+    "nombre": "Zapatillas Urbanas Blancas",
+    "descripcion": "Zapatillas de cuero sintético con diseño limpio y suela de goma.",
+    "precio": 24500
+  },
+  {
+    "id": 4,
+    "nombre": "Campera Rompeviento Azul",
+    "descripcion": "Campera liviana, resistente al viento y al agua, ideal para media estación.",
+    "precio": 32900
+  },
+  {
+    "id": 5,
+    "nombre": "Gorra Trucker Negra",
+    "descripcion": "Gorra con visera curva y red en la parte trasera. Ajuste regulable.",
+    "precio": 5900
+  }
+]
