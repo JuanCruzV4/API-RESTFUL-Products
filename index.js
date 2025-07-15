@@ -2,6 +2,8 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import productsRouter from "./src/routes/products.router.js";
+import swaggerUi from "swagger-ui-express";
+import swaggerSpec from "./src/docs/swagger.js"
 
 const app = express();
 
@@ -9,6 +11,8 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api", productsRouter);
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.get("/", (req, res) => {
   res.json({
