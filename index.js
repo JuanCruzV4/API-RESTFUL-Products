@@ -2,15 +2,24 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import productsRouter from "./src/routes/products.router.js";
+import authRouter from "./src/routes/auth.router.js";
+import {
+  errorHandler404,
+  errorHandler500,
+} from "./src/middlewares/errorHandler.middleware.js";
 import swaggerUi from "swagger-ui-express";
-import swaggerSpec from "./src/docs/swagger.js"
+import swaggerSpec from "./src/docs/swagger.js";
+import { auth } from "./src/middlewares/auth.middleware.js";
 
 const app = express();
 
 app.use(cors());
+
 app.use(express.json());
 
-app.use("/api", productsRouter);
+app.use("/api", authRouter);
+
+app.use("/api", auth, productsRouter);
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
@@ -20,14 +29,9 @@ app.get("/", (req, res) => {
   });
 });
 
-app.use((req, res, next) => {
-  res.status(404).json({ error: "Recurso no encontrado" });
-});
+app.use(errorHandler404);
 
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).json({ error: "Error interno del servidor" });
-});
+app.use(errorHandler500);
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`http://localhost:${PORT}`));
